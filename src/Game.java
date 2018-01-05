@@ -3,8 +3,8 @@ public class Game {
 	
 	private Logic logic;
 	private Board board;
-	private Player player1;
-	private Player player2;
+	private IPlayer player1;
+	private IPlayer player2;
 	
 	public Game(int boardSize) {
 		this.board = new Board(boardSize);
@@ -12,9 +12,11 @@ public class Game {
 		this.player1 = new Player(mark.Black);
 		this.player2 = new Player(mark.White);
 	}
-	
+	/**
+	 * run the game flow.
+	 */
 	public void play() {
-		Player player = this.player1;
+		IPlayer player = this.player1;
 		boolean running = true;
 		
 		do {
@@ -28,11 +30,16 @@ public class Game {
 		int blank = this.board.countSign(mark.Blank);
 		System.out.format("black: %d\nwhite: %d\nblank: %d", black, white, blank);
 	}
-	
-	public boolean makeTurn(Player player) {
+	/**
+	 * play one turn
+	 * @param player : the player that plays right now
+	 * @return true if game still running, else, return false if
+	 * game over (both players have no move).
+	 */
+	public boolean makeTurn(IPlayer player) {
 		Point point;
-		Path temp;
-		List<Path> pathVector = new ArrayList();
+		//Path temp;
+		List<Path> pathVector = new ArrayList<Path>();
 		// put in vector available points to play
 		this.logic.avaliblePoints(pathVector, player.getSign());
 		if (pathVector.isEmpty()) {
@@ -55,8 +62,12 @@ public class Game {
 		}
 		return true;
 	}
-	
-	private Player switchPlayer(Player current) {
+	/**
+	 * switch between the players
+	 * @param current : current player playing
+	 * @return the other player
+	 */
+	private IPlayer switchPlayer(IPlayer current) {
 		if (this.player1.getSign() == current.getSign()) {
 			return this.player2;
 		}

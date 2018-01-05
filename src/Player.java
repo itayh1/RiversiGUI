@@ -1,5 +1,5 @@
 import java.util.*;
-public class Player {
+public class Player implements IPlayer{
 	private mark sign;
 	
 	public Player(mark sign) {
@@ -24,10 +24,11 @@ public class Player {
 		row = Integer.parseInt(str.trim().split(" ")[0]);
 		col = Integer.parseInt(str.trim().split(" ")[1]);
 		p = new Point(row - 1, col - 1);
+		//scan.close(); make game crash
 		return p;
 	}
 	
-	public void printOptions(List<Path> paths) {
+	private void printOptions(List<Path> paths) {
 		Path p;
 		
 		for (int i = 0; i < paths.size() ; i++) {
