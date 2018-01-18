@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="graphics.MenuController" alignment="TOP_CENTER"
+          hgap="10" vgap="100">
+
+    <padding><Insets top="25" right="25" left="25" bottom="10"></Insets></padding>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Text text="Welcome to the REVERSI game." id="firstText"
+              GridPane.rowIndex="0" GridPane.columnIndex="0"
+              GridPane.columnSpan="3"/>
+        <Text text="Please do your very best" id="secondText"
+              GridPane.rowIndex="1" GridPane.columnIndex="0"
+              GridPane.columnSpan="3"/>
+    </HBox>
+
+    <VBox spacing="10" GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <HBox spacing="10" alignment="CENTER">
+            <Button fx:id="startButton" text="Start Game" onAction="#startGame"
+                    prefWidth="500" prefHeight="50"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER">
+            <Button fx:id="settingsButton" text="Settings" onAction="#settings"
+                    prefHeight="50" prefWidth="500"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER">
+            <Button fx:id="exitButton" text="Exit" onAction="#exitGame"
+                    prefWidth="500" prefHeight="50" />
+        </HBox>
+    </VBox>
+</GridPane>

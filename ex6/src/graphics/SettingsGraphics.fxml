@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<GridPane xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="graphics.SettingsController" alignment="TOP_CENTER"
+          hgap="10" vgap="100">
+    <padding><Insets top="25" left="25" right="25" bottom="10"></Insets></padding>
+    <HBox spacing="10" alignment="CENTER">
+        <Text text="Settings :" id="settings"
+              GridPane.rowIndex="0" GridPane.columnIndex="0"
+              GridPane.columnSpan="2"/>
+    </HBox>
+    <VBox spacing="10"
+          GridPane.rowIndex="1" GridPane.columnIndex="0">
+
+        <HBox spacing="10">
+            <Text text="Open Player :"/>
+            <ComboBox fx:id="startPlayer"/>
+        </HBox>
+
+        <HBox spacing="10">
+            <Text text="Player 1 Color :"/>
+            <ColorPicker fx:id="playerColor1"/>
+        </HBox>
+
+        <HBox spacing="10">
+            <Text text="Player 2 Color :"/>
+            <ColorPicker fx:id="playerColor2"/>
+        </HBox>
+
+        <HBox spacing="10">
+            <Text text="Board size :"/>
+            <ComboBox fx:id="boardSize"/>
+        </HBox>
+
+        <HBox spacing="10" alignment="BOTTOM_CENTER">
+            <Button fx:id="backToMenu" text="Back to menu" onAction="#backToMenu"/>
+            <Button fx:id="saveSettings" text="Save Settings" onAction="#saveSettings"/>
+        </HBox>
+    </VBox>
+</GridPane>
